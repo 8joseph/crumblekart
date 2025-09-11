@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/motorbike down.wav-9fc5e1928dc261fcc8f3d8446ebdc6e0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/motorbike down.wav"
+dest_files=[ "res://.import/motorbike down.wav-9fc5e1928dc261fcc8f3d8446ebdc6e0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

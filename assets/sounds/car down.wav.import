@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/car down.wav-8964dffe9ba05186ae5c6a5d830bcacf.sample"
+
+[deps]
+
+source_file="res://assets/sounds/car down.wav"
+dest_files=[ "res://.import/car down.wav-8964dffe9ba05186ae5c6a5d830bcacf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

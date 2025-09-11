@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/ui elements/fonts/ADDCN___.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/LobbyPlayerCard.gd" type="Script" id=2]
+[ext_resource path="res://assets/ui elements/misc/ppl_snaps/peggysue.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui elements/misc/vehicle_snaps/cm5000.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="PlayerCard" type="Control"]
+anchor_right = 0.223
+anchor_bottom = 0.494
+margin_right = -0.440002
+margin_bottom = 0.319977
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 257, 321 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.086
+anchor_top = 0.04
+anchor_right = 0.907
+anchor_bottom = 0.863
+margin_left = -0.0429993
+margin_top = 0.113994
+margin_right = 24.3159
+margin_bottom = 40.2809
+rect_scale = Vector2( 0.906136, 0.878816 )
+color = Color( 0.709804, 0.882353, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="Label" parent="."]
+anchor_left = 0.03
+anchor_top = 0.886
+anchor_right = 1.0
+anchor_bottom = 0.979
+margin_left = -0.0270052
+margin_top = 0.0158691
+margin_right = -3.47699
+margin_bottom = -0.0920715
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "crumbleboy"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VehicleTex" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -95.8376
+margin_top = -99.0186
+margin_right = 504.162
+margin_bottom = 500.981
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterTex" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -190.735
+margin_top = -103.791
+margin_right = 409.265
+margin_bottom = 496.209
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

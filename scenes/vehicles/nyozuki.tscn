@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/nyozuki.gd" type="Script" id=1]
+[ext_resource path="res://assets/vehicles/nyozuki/nyozuki.glb" type="PackedScene" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.05
+
+[sub_resource type="SphereShape" id=2]
+
+[node name="Nyozuki" type="Spatial"]
+script = ExtResource( 1 )
+ball = NodePath("Ball")
+car_mesh = NodePath("MeshNode/nyozuki")
+ground_ray = NodePath("MeshNode/nyozuki/RayCast")
+body_mesh = NodePath("MeshNode/nyozuki/Frame")
+mesh_node = NodePath("MeshNode")
+camera = NodePath("InterpolatedCamera")
+timer = NodePath("NetTickRate")
+audioplayer = NodePath("MeshNode/AudioStreamPlayer3D")
+character_pos = NodePath("MeshNode/nyozuki/Frame/Position3D")
+back_right_wheel = NodePath("MeshNode/backright")
+back_left_wheel = NodePath("MeshNode/backleft")
+boost_spot = NodePath("MeshNode/nyozuki/Frame/boost")
+back_cam_target = NodePath("MeshNode/backcamtarget")
+front_cam_target = NodePath("MeshNode/camtarget")
+sphere_offset = Vector3( 0, -0.652, 0 )
+acceleration = 48
+steering = 15
+steering_drift = 130
+drift_turn_speed = 1
+mesh_turn_amount = 7
+FrontWheel = NodePath("MeshNode/nyozuki/FrontWheel")
+BackWheel = NodePath("MeshNode/nyozuki/BackWheel")
+Frame = NodePath("MeshNode/nyozuki/Frame")
+
+[node name="MeshNode" type="Spatial" parent="."]
+
+[node name="nyozuki" parent="MeshNode" instance=ExtResource( 2 )]
+
+[node name="FrontWheel" parent="MeshNode/nyozuki" index="0"]
+transform = Transform( -9.462e-09, 0.0889104, -9.462e-09, 0, -3.8864e-09, -0.216465, -0.216465, -3.8864e-09, 4.13597e-16, -0.0771779, -0.0201164, -0.863005 )
+
+[node name="Frame" parent="MeshNode/nyozuki" index="1"]
+transform = Transform( -1.58415e-09, 0, 0.0362412, 0, 0.0362412, 0, -0.0362412, 0, -1.58415e-09, -0.0771779, -0.185088, -0.0177358 )
+
+[node name="Position3D" type="Position3D" parent="MeshNode/nyozuki/Frame" index="0"]
+transform = Transform( -1.20612e-06, 0, 27.5929, 0, 27.5929, 0, -27.5929, 0, -1.20612e-06, -5.98324, 8.44414, -0.438192 )
+
+[node name="boost" type="Position3D" parent="MeshNode/nyozuki/Frame" index="1"]
+transform = Transform( 15, 0, -5.68434e-14, 0, 15, 0, 5.68434e-14, 0, 15, -25.1377, 15.27, -4.76837e-07 )
+
+[node name="RayCast" type="RayCast" parent="MeshNode/nyozuki"]
+enabled = true
+
+[node name="camtarget" type="Position3D" parent="MeshNode"]
+transform = Transform( 1, 0, 0, 0, 0.999983, -0.00579435, 0, 0.00579435, 0.999983, 0, 1.12922, 3.24069 )
+
+[node name="backcamtarget" type="Position3D" parent="MeshNode"]
+transform = Transform( -1, 2.3351e-08, -8.42465e-08, 2.07466e-08, 0.999526, 0.0307829, 8.49254e-08, 0.0307829, -0.999526, 0, 1.18591, -3.19147 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshNode"]
+unit_db = 7.0
+autoplay = true
+
+[node name="backright" type="Position3D" parent="MeshNode"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0554703, 0, 0.964803 )
+
+[node name="backleft" type="Position3D" parent="MeshNode"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.197781, 0, 0.965363 )
+
+[node name="Ball" type="RigidBody" parent="."]
+physics_material_override = SubResource( 1 )
+gravity_scale = 10.0
+angular_damp = 5.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ball"]
+shape = SubResource( 2 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+target = NodePath("../MeshNode/camtarget")
+speed = 13.0
+enabled = true
+
+[node name="NetTickRate" type="Timer" parent="."]
+autostart = true
+
+[editable path="MeshNode/nyozuki"]

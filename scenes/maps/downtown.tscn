@@ -1,0 +1,325 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scripts/downtown_map.gd" type="Script" id=1]
+[ext_resource path="res://assets/maps/downtown/downtownscene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/misc/tracker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/maps/downtown/filler.glb" type="PackedScene" id=4]
+[ext_resource path="res://assets/misc/enviroments/downtown.tres" type="Environment" id=5]
+[ext_resource path="res://scenes/misc/speed pad.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/misc/extra/clouds.glb" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.50862, 0.402512, 22.3289 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 4.14263, 12.6956 )
+
+[sub_resource type="CylinderShape" id=3]
+radius = 4.40724
+
+[sub_resource type="Animation" id=4]
+resource_name = "clouds1"
+length = 90.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8, 85.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 44.1797, -240.525 ), Vector3( 0, 92.2508, -167.503 ), Vector3( 0, 92.2508, 272.839 ) ]
+}
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+spawn1 = NodePath("spawners/spawn1")
+spawn2 = NodePath("spawners/spawn2")
+spawn3 = NodePath("spawners/spawn3")
+spawn4 = NodePath("spawners/spawn4")
+spawn5 = NodePath("spawners/spawn5")
+spawn6 = NodePath("spawners/spawn6")
+lapper = NodePath("trackers/lapper")
+marker1 = NodePath("trackers/marker1")
+marker2 = NodePath("trackers/marker2")
+dir_light = NodePath("DirectionalLight")
+
+[node name="trackers" type="Spatial" parent="."]
+
+[node name="lapper" parent="trackers" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 3.03969, 0, 0, 0, 4.95713, 110.379, 26.4225, 182.313 )
+
+[node name="marker1" parent="trackers" instance=ExtResource( 3 )]
+transform = Transform( -8.76864e-08, 0, 9.94416, 0, 4.54472, 0, -1, 0, -2.16683e-07, 1.85182, 7.19104, -53.8171 )
+
+[node name="marker2" parent="trackers" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 4.54472, 0, 0, 0, 9.94416, 159.43, 7.19104, -74.5964 )
+
+[node name="spawners" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120.356, 21.6823, 189.164 )
+
+[node name="spawn1" type="Position3D" parent="spawners"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -3.03247 )
+
+[node name="spawn2" type="Position3D" parent="spawners"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -7.35562 )
+
+[node name="spawn3" type="Position3D" parent="spawners"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -11.8087 )
+
+[node name="spawn4" type="Position3D" parent="spawners"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.09829, 0, -3.03247 )
+
+[node name="spawn5" type="Position3D" parent="spawners"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.09828, 0, -7.26094 )
+
+[node name="spawn6" type="Position3D" parent="spawners"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.09829, 0, -11.3345 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.672617, 0.24234, -0.699183, 0.620715, 0.329624, 0.71138, 0.402864, -0.91248, 0.0712869, -48.3092, 107.644, 248.502 )
+light_energy = 0.5
+directional_shadow_mode = 0
+directional_shadow_normal_bias = 7.37
+directional_shadow_bias_split_scale = 1.0
+directional_shadow_max_distance = 192.9
+
+[node name="the scene" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="main" parent="the scene" instance=ExtResource( 2 )]
+
+[node name="filler" parent="the scene" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 177.4, 7.89684, 261.73 )
+
+[node name="filler2" parent="the scene" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.174, 3.69233, 92.8724 )
+
+[node name="filler3" parent="the scene" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 147.023, -22.2214, 282.804 )
+
+[node name="filler4" parent="the scene" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 147.023, 19.2654, 282.804 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )
+
+[node name="tunnel lights" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 361.686, 2.89892, -78.417 )
+
+[node name="SpotLight" type="SpotLight" parent="tunnel lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.956024, 3.79328, 4.88095 )
+light_color = Color( 0.882353, 0.866667, 0.698039, 1 )
+light_energy = 4.16
+spot_range = 29.0604
+spot_angle = 64.8622
+
+[node name="SpotLight4" type="SpotLight" parent="tunnel lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.956024, 5.59569, 65.7597 )
+light_color = Color( 0.882353, 0.866667, 0.698039, 1 )
+light_energy = 4.16
+spot_range = 29.0604
+spot_angle = 64.8622
+
+[node name="SpotLight5" type="SpotLight" parent="tunnel lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.956024, 5.59569, 103.499 )
+light_color = Color( 0.882353, 0.866667, 0.698039, 1 )
+light_energy = 4.16
+spot_range = 29.0604
+spot_angle = 64.8622
+
+[node name="SpotLight6" type="SpotLight" parent="tunnel lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.956024, 5.59569, 145.055 )
+light_color = Color( 0.882353, 0.866667, 0.698039, 1 )
+light_energy = 4.16
+spot_range = 29.0604
+spot_angle = 64.8622
+
+[node name="SpotLight2" type="SpotLight" parent="tunnel lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -56.2508, 6.92179, 4.88095 )
+light_color = Color( 0.882353, 0.866667, 0.698039, 1 )
+light_energy = 4.16
+spot_range = 29.0604
+spot_angle = 64.8622
+
+[node name="SpotLight3" type="SpotLight" parent="tunnel lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -124.92, 12.6445, 4.04705 )
+light_color = Color( 0.882353, 0.866667, 0.698039, 1 )
+light_energy = 4.16
+spot_range = 29.0604
+spot_angle = 64.8622
+
+[node name="boost pads" type="Spatial" parent="."]
+
+[node name="Speed Pad" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -0.00828751, 0.0538, -1.96639, 0.000446514, 0.998552, 0.105945, 1.51773, 0, -0.0232131, 286.855, -6.65788, -81.9202 )
+
+[node name="Speed Pad5" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 341.347, -3.45914, 191.82 )
+
+[node name="Speed Pad6" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 341.347, -3.45914, 185.385 )
+
+[node name="Speed Pad7" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 341.347, -3.45914, 178.759 )
+
+[node name="Speed Pad8" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 341.347, -3.45914, 172.377 )
+
+[node name="Speed Pad9" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 313.697, -0.0614462, 191.82 )
+
+[node name="Speed Pad10" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 313.697, -0.0614462, 185.385 )
+
+[node name="Speed Pad11" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 313.697, -0.0614462, 178.759 )
+
+[node name="Speed Pad12" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 313.697, -0.0614462, 172.377 )
+
+[node name="Speed Pad13" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 284.419, 3.51092, 191.82 )
+
+[node name="Speed Pad14" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 284.419, 3.51092, 185.385 )
+
+[node name="Speed Pad15" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 284.419, 3.51092, 178.759 )
+
+[node name="Speed Pad16" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 284.419, 3.51092, 172.377 )
+
+[node name="Speed Pad17" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 256.77, 6.90861, 191.82 )
+
+[node name="Speed Pad18" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 256.77, 6.90861, 185.385 )
+
+[node name="Speed Pad19" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 256.77, 6.90861, 178.759 )
+
+[node name="Speed Pad20" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 256.77, 6.90861, 172.377 )
+
+[node name="Speed Pad21" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 225.623, 10.7009, 191.82 )
+
+[node name="Speed Pad22" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 225.623, 10.7009, 185.385 )
+
+[node name="Speed Pad23" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 225.623, 10.7009, 178.759 )
+
+[node name="Speed Pad24" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 225.623, 10.7009, 172.377 )
+
+[node name="Speed Pad44" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 197.974, 14.0986, 191.82 )
+
+[node name="Speed Pad45" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 197.974, 14.0986, 185.385 )
+
+[node name="Speed Pad46" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 197.974, 14.0986, 178.759 )
+
+[node name="Speed Pad47" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 197.974, 14.0986, 172.377 )
+
+[node name="Speed Pad33" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.04761, 0.00249432, 0.0322689, 0.000163577, 0.986458, -0.32981, -0.0120607, -0.219709, -3.01993, 368.866, -8.11908, 127.754 )
+
+[node name="Speed Pad34" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.04761, 0.00249432, 0.0322689, 0.000163577, 0.986458, -0.32981, -0.0120607, -0.219709, -3.01993, 362.662, -8.11811, 127.683 )
+
+[node name="Speed Pad35" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.04761, 0.00249432, 0.0322689, 0.000163577, 0.986458, -0.32981, -0.0120607, -0.219709, -3.01993, 356.274, -8.11712, 127.609 )
+
+[node name="Speed Pad36" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.04761, 0.00249432, 0.0322689, 0.000163577, 0.986458, -0.32981, -0.0120607, -0.219709, -3.01993, 350.122, -8.11616, 127.539 )
+
+[node name="Speed Pad37" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.04761, 0.00249432, 0.0322689, 0.000163577, 0.986458, -0.32981, -0.0120607, -0.219709, -3.01993, 368.866, -5.99842, 147.665 )
+
+[node name="Speed Pad38" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.04761, 0.00249432, 0.0322689, 0.000163577, 0.986458, -0.32981, -0.0120607, -0.219709, -3.01993, 362.662, -5.99745, 147.593 )
+
+[node name="Speed Pad39" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.04761, 0.00249432, 0.0322689, 0.000163577, 0.986458, -0.32981, -0.0120607, -0.219709, -3.01993, 356.274, -5.99645, 147.52 )
+
+[node name="Speed Pad40" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.04761, 0.00249432, 0.0322689, 0.000163577, 0.986458, -0.32981, -0.0120607, -0.219709, -3.01993, 350.122, -5.99549, 147.449 )
+
+[node name="Speed Pad25" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 216.678, 6.87213, 191.82 )
+
+[node name="Speed Pad26" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 216.678, 6.87213, 185.385 )
+
+[node name="Speed Pad27" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 216.678, 6.87213, 178.759 )
+
+[node name="Speed Pad28" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 216.678, 6.87213, 172.377 )
+
+[node name="Speed Pad29" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 193.266, 9.72987, 191.82 )
+
+[node name="Speed Pad30" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 193.266, 9.72987, 185.385 )
+
+[node name="Speed Pad31" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 193.266, 9.72987, 178.759 )
+
+[node name="Speed Pad32" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -6.91897e-08, 0.23308, 3.01536, 8.50673e-09, 0.983388, -0.370733, -1.08667, 0, -9.04866e-08, 193.266, 9.72987, 172.377 )
+
+[node name="Speed Pad2" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -4.51872e-08, 0, -1.96931, 0, 1, 0, 1.03376, 0, -8.60811e-08, 50.9837, 0.00230646, -81.003 )
+
+[node name="Speed Pad3" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -4.51872e-08, 0, -1.96931, 0, 1, 0, 1.03376, 0, -8.60811e-08, 50.9837, 0.00230646, -74.5627 )
+
+[node name="Speed Pad4" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -4.51872e-08, 0, -1.96931, 0, 1, 0, 1.03376, 0, -8.60811e-08, 50.9837, 0.00230646, -67.7343 )
+
+[node name="Speed Pad41" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.92102, -0.791391, 3.11894, 56.2134 )
+
+[node name="Speed Pad43" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( 0.715835, 0, 0, 0, 0.999979, 0.0123382, 0, -0.00642273, 1.92098, -0.859079, 0.0414989, 112.156 )
+
+[node name="Speed Pad42" parent="boost pads" instance=ExtResource( 6 )]
+transform = Transform( -1.83243, 0, 3.0774e-07, 0, 1, 0, -1.5529e-07, 0, -3.41233, 366.771, -9.75139, 56.2134 )
+
+[node name="Misc" type="Spatial" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="Misc"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.809092, 2.85307, 80.6606 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Misc/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Misc/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7437, 22.3395, 101.856 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Misc/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7916, 0, -23.286 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Misc/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.92, 0, -23.286 )
+shape = SubResource( 3 )
+
+[node name="clouds" parent="Misc" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 73.8115, 75.9214 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Misc/clouds"]
+autoplay = "clouds1"
+anims/clouds1 = SubResource( 4 )

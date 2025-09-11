@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/particles/materials/sparks_change.tres" type="Material" id=1]
+
+[sub_resource type="QuadMesh" id=1]
+material = ExtResource( 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.997727 ), 0.0, 0.0, 0, 0, Vector2( 0.89557, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.33377, 0.0, 0, 0 ]
+
+[node name="CPUParticles" type="CPUParticles"]
+transform = Transform( 0.121647, -0.0877606, 0, 0.0877606, 0.121647, 0, 0, 0, 0.15, 0, 0, 0 )
+emitting = false
+amount = 40
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 0.33
+local_coords = false
+mesh = SubResource( 1 )
+initial_velocity = 61.28
+initial_velocity_random = 1.0
+angular_velocity = 0.63
+scale_amount = 0.05
+scale_amount_curve = SubResource( 2 )
+color = Color( 0.717647, 1, 0.94902, 1 )

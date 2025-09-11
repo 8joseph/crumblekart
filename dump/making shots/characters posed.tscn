@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://dump/making shots/characters posed.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/vehicles/nyozuki/nyozuki.glb" type="PackedScene" id=2]
+[ext_resource path="res://dump/making shots/peoplemesh.material" type="Material" id=3]
+[ext_resource path="res://dump/yeah.material" type="Material" id=4]
+[ext_resource path="res://assets/vehicles/cm5000/cm5000.glb" type="PackedScene" id=5]
+[ext_resource path="res://dump/y2eah.material" type="Material" id=6]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.741176, 1, 0, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+
+[node name="characters posed" instance=ExtResource( 1 )]
+
+[node name="Armature001" parent="." index="0"]
+visible = false
+
+[node name="Cube001" parent="Armature001/Skeleton" index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="Armature" parent="." index="1"]
+transform = Transform( 0.476345, 0, 0, 0, 0.476345, 0, 0, 0, 0.476345, -1.00743, 0, 0 )
+visible = false
+
+[node name="Cube" parent="Armature/Skeleton2" index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="2"]
+transform = Transform( 10.62, 0, 0, 0, -4.37114e-08, -3.1005, 0, 1, -1.35527e-07, 0, 0, -1.73869 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="3"]
+transform = Transform( 0.938457, 1.44426e-08, 0.345396, -0.0968082, 0.959918, 0.263032, -0.331552, -0.280281, 0.900842, 0.126081, 1.3376, 3.84956 )
+light_energy = 0.3
+
+[node name="nyozuki" parent="." index="4" instance=ExtResource( 2 )]
+transform = Transform( -0.270264, 0, -0.962786, 0, 1, 0, 0.962786, 0, -0.270264, 0, 0, 0.19368 )
+
+[node name="FrontWheel" parent="nyozuki" index="0"]
+material/0 = ExtResource( 4 )
+
+[node name="Frame" parent="nyozuki" index="1"]
+material/0 = ExtResource( 4 )
+
+[node name="BackWheel" parent="nyozuki" index="2"]
+material/0 = ExtResource( 4 )
+
+[node name="cm5000" parent="." index="5" instance=ExtResource( 5 )]
+transform = Transform( -0.517161, 0, -0.855888, 0, 1, 0, 0.855888, 0, -0.517161, 2.61409, 0, 0 )
+visible = false
+
+[node name="base" parent="cm5000" index="0"]
+transform = Transform( -1.49012e-08, 0, -0.861097, 0, 0.861097, 0, 0.712005, 0, -1.49012e-08, -0.16713, -0.0817929, 0.143422 )
+material/0 = ExtResource( 6 )
+
+[node name="WheelTopRight" parent="cm5000" index="1"]
+material/0 = ExtResource( 6 )
+
+[node name="WheelBackRight" parent="cm5000" index="2"]
+material/0 = ExtResource( 6 )
+
+[node name="WheelTopLeft" parent="cm5000" index="3"]
+material/0 = ExtResource( 6 )
+
+[node name="WheelBackLeft" parent="cm5000" index="4"]
+material/0 = ExtResource( 6 )
+
+[editable path="nyozuki"]
+[editable path="cm5000"]

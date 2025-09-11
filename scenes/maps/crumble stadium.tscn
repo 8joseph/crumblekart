@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/maps/crumble stadium/crumble_stadium_asset.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/crumble_stadium.gd" type="Script" id=2]
+[ext_resource path="res://scenes/misc/tracker.tscn" type="PackedScene" id=3]
+
+[node name="Crumble Stadium" type="Spatial"]
+script = ExtResource( 2 )
+spawn1 = NodePath("Spawns/spawn1")
+spawn2 = NodePath("Spawns/spawn2")
+spawn3 = NodePath("Spawns/spawn3")
+spawn4 = NodePath("Spawns/spawn4")
+spawn5 = NodePath("Spawns/spawn5")
+spawn6 = NodePath("Spawns/spawn6")
+lapper = NodePath("Trackers/lapper")
+marker1 = NodePath("Trackers/marker1")
+marker2 = NodePath("Trackers/marker2")
+
+[node name="Spawns" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.97954, 43.5755 )
+
+[node name="spawn1" type="Position3D" parent="Spawns"]
+
+[node name="spawn2" type="Position3D" parent="Spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.72549 )
+
+[node name="spawn3" type="Position3D" parent="Spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.95236 )
+
+[node name="spawn4" type="Position3D" parent="Spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55968, 0, 4.95236 )
+
+[node name="spawn5" type="Position3D" parent="Spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55968, 0, -1.24253 )
+
+[node name="spawn6" type="Position3D" parent="Spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55968, 0, -8.30018 )
+
+[node name="Trackers" type="Spatial" parent="."]
+
+[node name="lapper" parent="Trackers" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 46.1701, 0, 0, 0, 105.196, 30.6228, 10.2106, 46.3007 )
+
+[node name="marker1" parent="Trackers" instance=ExtResource( 3 )]
+transform = Transform( -0.0143462, 0, -105.185, 0, 46.1701, 0, 0.999897, 0, -1.50915, -94.0634, 10.2106, 12.5581 )
+
+[node name="marker2" parent="Trackers" instance=ExtResource( 3 )]
+transform = Transform( 0.00694634, 0, -105.193, 0, 46.1701, 0, 0.999976, 0, 0.730726, 106.614, 10.2106, 14.6736 )
+
+[node name="crumble stadium" parent="." instance=ExtResource( 1 )]

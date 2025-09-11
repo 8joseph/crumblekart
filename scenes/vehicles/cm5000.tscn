@@ -1,0 +1,236 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/cm5000.gd" type="Script" id=1]
+[ext_resource path="res://assets/vehicles/cm5000/cm5000.glb" type="PackedScene" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.05
+
+[sub_resource type="SphereShape" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "start_drift_left"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshNode/cm5000:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.02, 0.1, 0.18, 0.2, 0.24, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.35, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0.02, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshNode/cm5000:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.18, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 45, 0 ), Vector3( 0, 45, 0 ), Vector3( 0, 60, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "start_drift_right"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshNode/cm5000:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.02, 0.1, 0.18, 0.2, 0.24, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.35, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0.02, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshNode/cm5000:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.18, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -45, 0 ), Vector3( 0, -45, 0 ), Vector3( 0, -60, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshNode/cm5000:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -45, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshNode/cm5000:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.02, 0.06, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.2, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshNode/cm5000:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 60, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshNode/cm5000:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshNode/cm5000:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -45, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshNode/cm5000:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[node name="Cm5000" type="Spatial"]
+script = ExtResource( 1 )
+ball = NodePath("Ball")
+car_mesh = NodePath("MeshNode/cm5000")
+ground_ray = NodePath("MeshNode/cm5000/RayCast")
+body_mesh = NodePath("MeshNode/cm5000/base")
+mesh_node = NodePath("MeshNode")
+camera = NodePath("InterpolatedCamera")
+timer = NodePath("NetTickRate")
+audioplayer = NodePath("MeshNode/AudioStreamPlayer3D")
+character_pos = NodePath("MeshNode/cm5000/base/Position3D")
+back_right_wheel = NodePath("MeshNode/cm5000/base/backright")
+back_left_wheel = NodePath("MeshNode/cm5000/base/backleft")
+boost_spot = NodePath("MeshNode/cm5000/base/boost")
+back_cam_target = NodePath("MeshNode/backcamtarget")
+front_cam_target = NodePath("MeshNode/camtarget")
+sphere_offset = Vector3( 0, -0.642, 0 )
+acceleration = 45
+steering = 21
+steering_drift = 1
+turn_speed = 2.3
+drift_turn_speed = 90
+Frame = NodePath("MeshNode/cm5000/base")
+FrontLeftWheel = NodePath("MeshNode/cm5000/WheelTopLeft")
+FrontRightWheel = NodePath("MeshNode/cm5000/WheelTopRight")
+BackRightWheel = NodePath("MeshNode/cm5000/WheelBackRight")
+BackLeftWheel = NodePath("MeshNode/cm5000/WheelBackLeft")
+AnimPlayer = NodePath("AnimationPlayer")
+
+[node name="MeshNode" type="Spatial" parent="."]
+
+[node name="cm5000" parent="MeshNode" instance=ExtResource( 2 )]
+
+[node name="Position3D" type="Position3D" parent="MeshNode/cm5000/base" index="0"]
+transform = Transform( -4.37114e-08, 0, -0.999998, 0, 0.999998, 0, 0.999999, 0, -4.37113e-08, 0.117239, 0.159425, 0.331415 )
+
+[node name="backleft" type="Position3D" parent="MeshNode/cm5000/base" index="1"]
+transform = Transform( 1.22784e-07, 0, -1.40448, 0, 1.16131, 0, 1.16131, 0, 1.01525e-07, 0.781699, -0.298411, 0.877946 )
+
+[node name="backright" type="Position3D" parent="MeshNode/cm5000/base" index="2"]
+transform = Transform( 0, 0, 1.40448, 0, 1.16131, 0, -1.16131, 0, 0, 0.781699, -0.298411, -0.848166 )
+
+[node name="boost" type="Position3D" parent="MeshNode/cm5000/base" index="3"]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 1.62063, 0.016128, 0.0726362 )
+
+[node name="RayCast" type="RayCast" parent="MeshNode/cm5000"]
+enabled = true
+
+[node name="camtarget" type="Position3D" parent="MeshNode"]
+transform = Transform( 1, 0, 0, 0, 0.999273, 0.0381263, 0, -0.0381263, 0.999273, 0, 1.79522, 4.8511 )
+
+[node name="backcamtarget" type="Position3D" parent="MeshNode"]
+transform = Transform( -1, 3.3331e-09, -8.73592e-08, 0, 0.999273, 0.0381262, 8.74228e-08, 0.0381262, -0.999273, 0, 1.46603, -3.77683 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshNode"]
+unit_db = 7.0
+autoplay = true
+
+[node name="Ball" type="RigidBody" parent="."]
+physics_material_override = SubResource( 1 )
+gravity_scale = 10.0
+angular_damp = 5.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ball"]
+shape = SubResource( 2 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999273, 0.0381263, 0, -0.0381263, 0.999273, 0, 0.811744, 2.87898 )
+current = true
+target = NodePath("../MeshNode/camtarget")
+speed = 12.0
+enabled = true
+
+[node name="NetTickRate" type="Timer" parent="."]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/start_drift_left = SubResource( 3 )
+anims/start_drift_right = SubResource( 4 )
+anims/start_drift_right(old) = SubResource( 5 )
+anims/stop_drift_left = SubResource( 6 )
+anims/stop_drift_right = SubResource( 7 )
+
+[editable path="MeshNode/cm5000"]

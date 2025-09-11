@@ -1,0 +1,240 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scripts/hud.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui elements/hud/speeedometer.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui elements/hud/pointer.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui elements/fonts/ADDCN___.TTF" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/sounds/start bleep.wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 200
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "slide_down"
+length = 0.9
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 576, -0.25, 0, 0.25, 0, 576, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -200, -0.25, 0, 0.25, 0, 250, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="speedometer" type="TextureRect" parent="."]
+anchor_left = 0.735
+anchor_top = 0.748
+anchor_right = 0.992
+anchor_bottom = 0.975
+margin_left = -62.8268
+margin_top = -133.803
+margin_right = 63.2133
+margin_bottom = 159.757
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pointer" type="TextureRect" parent="speedometer"]
+anchor_left = 0.461
+anchor_top = 0.386
+anchor_right = 0.546
+anchor_bottom = 0.681
+margin_left = -248.673
+margin_top = -210.914
+margin_right = 247.652
+margin_bottom = 189.271
+rect_rotation = -80.0
+rect_pivot_offset = Vector2( 268, 330 )
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinishStats" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -251.5
+margin_top = -137.5
+margin_right = 251.5
+margin_bottom = 137.5
+theme = SubResource( 2 )
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameFinished" type="Label" parent="FinishStats"]
+margin_right = 503.0
+margin_bottom = 65.0
+text = "Game Finished!"
+
+[node name="FirstPlace" type="Label" parent="FinishStats"]
+margin_top = 70.0
+margin_right = 503.0
+margin_bottom = 135.0
+text = "1st:"
+
+[node name="SecondPlace" type="Label" parent="FinishStats"]
+margin_top = 140.0
+margin_right = 503.0
+margin_bottom = 205.0
+text = "2nd:"
+
+[node name="ThirdPlace" type="Label" parent="FinishStats"]
+margin_top = 210.0
+margin_right = 503.0
+margin_bottom = 275.0
+text = "3rd:"
+
+[node name="CountDown" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.309
+margin_top = -581.585
+margin_right = 166.691
+margin_bottom = -380.585
+grow_horizontal = 2
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CountDown"]
+anims/slide_down = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="CountDown"]
+
+[node name="tempInfo" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="speed" type="Label" parent="tempInfo"]
+margin_right = 43.0
+margin_bottom = 14.0
+rect_scale = Vector2( 5, 5 )
+text = "Speed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lap" type="Label" parent="tempInfo"]
+margin_top = 67.3477
+margin_right = 40.0
+margin_bottom = 81.3477
+rect_scale = Vector2( 5, 5 )
+text = "Lap:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="engine_power" type="Label" parent="tempInfo"]
+margin_top = 138.058
+margin_right = 89.0
+margin_bottom = 152.058
+rect_scale = Vector2( 5, 5 )
+text = "Engine Power:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lap" type="Label" parent="."]
+margin_left = 34.7058
+margin_top = 16.0181
+margin_right = 278.706
+margin_bottom = 81.0181
+custom_fonts/font = SubResource( 5 )
+text = "Lap: 1/3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="."]
+margin_left = 34.0976
+margin_top = 84.2197
+margin_right = 191.098
+margin_bottom = 117.22
+custom_fonts/font = SubResource( 6 )
+text = "Time: 0:0:0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Time"]
+wait_time = 0.1
+
+[node name="countdoown_bleep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="timeout" from="Time/Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,310 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui elements/lobby_theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/ui elements/fonts/ADDCN___.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/ui/LobbyPlayer3d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/LobbyPlayerCard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/lobbylocalplayerbttn.tres" type="StyleBox" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=3]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = ExtResource( 6 )
+Button/styles/focus = ExtResource( 6 )
+Button/styles/hover = ExtResource( 6 )
+Button/styles/normal = ExtResource( 6 )
+Button/styles/pressed = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="noHost" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -191.0
+margin_top = -20.5
+margin_right = 191.0
+margin_bottom = 20.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "no host detected!"
+
+[node name="LobbyLabel" type="Label" parent="."]
+anchor_left = 0.427
+anchor_right = 0.573
+anchor_bottom = 0.09
+margin_left = 0.440002
+margin_right = -0.440002
+margin_bottom = 0.199997
+custom_fonts/font = SubResource( 2 )
+text = "lobby"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playerinfo" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -264.5
+margin_top = -85.0
+margin_right = 264.5
+margin_bottom = 85.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playerinfo2" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 10.0
+margin_top = -138.5
+margin_right = 604.0
+margin_bottom = 138.5
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LocalPlayerInfo" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -401.5
+margin_top = -193.594
+margin_right = 401.5
+margin_bottom = -101.594
+theme = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeVehicle" type="Button" parent="LocalPlayerInfo"]
+margin_right = 250.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 250, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = "Change Vehicle"
+
+[node name="ChangeCharacter" type="Button" parent="LocalPlayerInfo"]
+margin_left = 254.0
+margin_right = 554.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 300, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = "Change Character"
+
+[node name="ShowInfo" type="VBoxContainer" parent="LocalPlayerInfo"]
+margin_left = 558.0
+margin_right = 803.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="Label" type="Label" parent="LocalPlayerInfo/ShowInfo"]
+margin_right = 245.0
+margin_bottom = 28.0
+text = "Your Info:"
+
+[node name="ShowVehicle" type="Label" parent="LocalPlayerInfo/ShowInfo"]
+margin_top = 32.0
+margin_right = 245.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 25 )
+text = "blalalala"
+
+[node name="ShowCharacter" type="Label" parent="LocalPlayerInfo/ShowInfo"]
+margin_top = 64.0
+margin_right = 245.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 0, 25 )
+text = "weeeeaaaeooooo"
+
+[node name="LobbyInfo" type="VBoxContainer" parent="."]
+anchor_right = 0.166
+anchor_bottom = 0.139
+margin_right = -62.48
+margin_bottom = -0.0800095
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LobbyIp" type="Label" parent="LobbyInfo"]
+margin_right = 212.0
+margin_bottom = 28.0
+text = "ip yadadada"
+
+[node name="LobbyPort" type="Label" parent="LobbyInfo"]
+margin_top = 32.0
+margin_right = 212.0
+margin_bottom = 60.0
+text = "port dodododo"
+
+[node name="MainMenu" type="Button" parent="LobbyInfo"]
+margin_top = 64.0
+margin_right = 212.0
+margin_bottom = 94.0
+text = "main menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapStuff" type="VBoxContainer" parent="."]
+anchor_left = 0.754
+anchor_right = 1.0
+anchor_bottom = 0.165
+margin_left = -0.119995
+margin_bottom = -18.8
+rect_min_size = Vector2( 150, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapName" type="Label" parent="MapStuff"]
+margin_right = 315.0
+margin_bottom = 28.0
+text = "Map: ooh la lane"
+
+[node name="MapSelectButton" type="Button" parent="MapStuff"]
+margin_top = 32.0
+margin_right = 315.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 315, 30 )
+text = "Change Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGameButton" type="Button" parent="MapStuff"]
+margin_top = 66.0
+margin_right = 315.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 100, 50 )
+custom_fonts/font = SubResource( 4 )
+text = "START!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 55.0
+margin_top = 11.0
+margin_right = 555.0
+margin_bottom = 219.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 500, 208 )
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Spatial" parent="ViewportContainer/Viewport" instance=ExtResource( 4 )]
+
+[node name="PlayerCards" type="HBoxContainer" parent="."]
+anchor_left = 0.012
+anchor_top = 0.213
+anchor_right = 0.988
+anchor_bottom = 0.625
+margin_left = -0.360001
+margin_top = 34.64
+margin_right = 312.36
+margin_bottom = 65.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCard" parent="PlayerCards" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 257.0
+margin_bottom = 321.0
+
+[node name="PlayerCard2" parent="PlayerCards" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 261.0
+margin_right = 518.0
+margin_bottom = 321.0
+
+[node name="PlayerCard3" parent="PlayerCards" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 522.0
+margin_right = 779.0
+margin_bottom = 321.0
+
+[node name="PlayerCard4" parent="PlayerCards" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 783.0
+margin_right = 1040.0
+margin_bottom = 321.0
+
+[node name="PlayerCard5" parent="PlayerCards" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1044.0
+margin_right = 1301.0
+margin_bottom = 321.0
+
+[node name="PlayerCard6" parent="PlayerCards" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1305.0
+margin_right = 1562.0
+margin_bottom = 321.0
+
+[connection signal="pressed" from="LocalPlayerInfo/ChangeVehicle" to="." method="_on_ChangeVehicle_pressed"]
+[connection signal="pressed" from="LocalPlayerInfo/ChangeCharacter" to="." method="_on_ChangeCharacter_pressed"]
+[connection signal="pressed" from="LobbyInfo/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MapStuff/MapSelectButton" to="." method="_on_MapSelectButton_pressed"]
+[connection signal="pressed" from="MapStuff/StartGameButton" to="." method="_on_StartGameButton_pressed"]

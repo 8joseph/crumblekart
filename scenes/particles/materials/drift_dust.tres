@@ -1,0 +1,19 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+params_cull_mode = 1
+params_grow = true
+params_grow_amount = 0.05
+albedo_color = Color( 0, 0, 0, 1 )
+
+[resource]
+resource_name = "onemat"
+next_pass = SubResource( 1 )
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 4
+params_specular_mode = 3
+params_cull_mode = 2
+metallic = 0.2
+metallic_specular = 0.01
+roughness = 0.04

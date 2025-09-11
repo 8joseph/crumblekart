@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/motorbike up2.wav-5a335180384eabe634465d4747482a69.sample"
+
+[deps]
+
+source_file="res://assets/sounds/motorbike up2.wav"
+dest_files=[ "res://.import/motorbike up2.wav-5a335180384eabe634465d4747482a69.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
