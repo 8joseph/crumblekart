@@ -205,6 +205,7 @@ transform = Transform( 1, 0, 0, 0, 0.999273, 0.0381263, 0, -0.0381263, 0.999273,
 transform = Transform( -1, 3.3331e-09, -8.73592e-08, 0, 0.999273, 0.0381262, 8.74228e-08, 0.0381262, -0.999273, 0, 1.46603, -3.77683 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshNode"]
+attenuation_model = 3
 unit_db = 7.0
 autoplay = true
 

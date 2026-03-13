@@ -108,7 +108,9 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/subsurface_scattering/quality=2
+quality/driver/driver_name="GLES2"
+quality/shadow_atlas/quadrant_0_subdiv=2
 environment/default_clear_color=Color( 0.501961, 0.611765, 0.760784, 1 )
 quality/filters/msaa=2
 environment/default_environment="res://default_env.tres"
+quality/subsurface_scattering/quality=2

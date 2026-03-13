@@ -131,7 +131,6 @@ tracks/7/keys = {
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.98269, 0.0649837, -0.173484, -0.110534, -0.957176, 0.267576, -0.148666, 0.28212, 0.94779, -1.52588e-05, 113.31, 43.1106 )
 light_energy = 0.2
-shadow_enabled = true
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.951914, 0.038367, -0.303953, -0.0637225, 0.995225, -0.073941, 0.299664, 0.0897541, 0.949813, -10.908, 44.2935, -8.18501 )

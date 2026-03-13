@@ -188,16 +188,19 @@ func _ready():
 	drift_sound = AudioStreamPlayer3D.new()
 	boost_spot.add_child(drift_sound)
 	drift_sound.stream = load('res://assets/sounds/drift.wav')
+	drift_sound.attenuation_model = 3
 	drift_sound.set_unit_db(7) 
 	#add the spark sound audio player
 	spark_sound = AudioStreamPlayer3D.new()
 	boost_spot.add_child(spark_sound)
 	spark_sound.stream = load('res://assets/sounds/spark.wav')
+	spark_sound.attenuation_model = 3
 	spark_sound.unit_db = 13
 	#add the boost sound
 	boost_sound = AudioStreamPlayer3D.new()
 	boost_spot.add_child(boost_sound)
 	boost_sound.stream = load('res://assets/sounds/boost.wav')
+	boost_sound.attenuation_model = 3
 	boost_sound.set_unit_db(10) 
 	
 

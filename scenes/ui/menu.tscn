@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui elements/logo/logofinal.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui elements/theme.tres" type="Theme" id=3]
 [ext_resource path="res://scenes/ui/settings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui elements/lobby_theme.tres" type="Theme" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "mm_slide_out"
@@ -40,9 +41,6 @@ rect_min_size = Vector2( 318, 216 )
 rect_scale = Vector2( 1.3, 1.3 )
 theme = ExtResource( 3 )
 custom_constants/separation = -15
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SingleplayerBttn" type="Button" parent="NewButtons"]
 margin_right = 404.0
@@ -50,7 +48,15 @@ margin_bottom = 51.0
 custom_colors/font_color = Color( 0.709804, 0.882353, 1, 1 )
 text = "Singleplayer"
 
+[node name="HelpBttn" type="Button" parent="NewButtons"]
+margin_top = 36.0
+margin_right = 404.0
+margin_bottom = 87.0
+custom_colors/font_color = Color( 0.709804, 0.882353, 1, 1 )
+text = "Help"
+
 [node name="MultiplayerBttn" type="Button" parent="NewButtons"]
+visible = false
 margin_top = 36.0
 margin_right = 404.0
 margin_bottom = 87.0
@@ -65,9 +71,10 @@ custom_colors/font_color = Color( 0.0588235, 0.662745, 0.694118, 1 )
 text = "Settings"
 
 [node name="QuitBttn" type="Button" parent="NewButtons"]
-margin_top = 108.0
+visible = false
+margin_top = 72.0
 margin_right = 404.0
-margin_bottom = 159.0
+margin_bottom = 123.0
 custom_colors/font_color = Color( 0.0941176, 0.733333, 0.478431, 1 )
 text = "Quit"
 
@@ -75,6 +82,7 @@ text = "Quit"
 anims/mm_slide_out = SubResource( 1 )
 
 [node name="Multiplayer" type="VBoxContainer" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -90,7 +98,7 @@ __meta__ = {
 }
 
 [node name="name" type="LineEdit" parent="Multiplayer"]
-margin_right = 357.0
+margin_right = 356.0
 margin_bottom = 33.0
 text = "player"
 max_length = 12
@@ -98,7 +106,7 @@ placeholder_text = "name"
 
 [node name="JoinOptions" type="HBoxContainer" parent="Multiplayer"]
 margin_top = 44.0
-margin_right = 357.0
+margin_right = 356.0
 margin_bottom = 114.0
 custom_constants/separation = 43
 
@@ -126,12 +134,12 @@ placeholder_text = "port"
 
 [node name="HostOptions" type="HBoxContainer" parent="Multiplayer"]
 margin_top = 125.0
-margin_right = 357.0
+margin_right = 356.0
 margin_bottom = 176.0
 custom_constants/separation = 20
 
 [node name="host" type="Button" parent="Multiplayer/HostOptions"]
-margin_right = 117.0
+margin_right = 115.0
 margin_bottom = 51.0
 text = "host"
 __meta__ = {
@@ -139,8 +147,8 @@ __meta__ = {
 }
 
 [node name="LineEdits" type="VBoxContainer" parent="Multiplayer/HostOptions"]
-margin_left = 137.0
-margin_right = 357.0
+margin_left = 135.0
+margin_right = 355.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 220, 0 )
 
@@ -174,8 +182,54 @@ margin_top = -0.280006
 margin_right = -0.320068
 margin_bottom = 0.200012
 
+[node name="HelpMenu" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -489.0
+margin_top = -172.0
+margin_right = -106.0
+margin_bottom = 178.0
+theme = ExtResource( 5 )
+color = Color( 0.427451, 0.588235, 0.588235, 0.556863 )
+
+[node name="Label" type="Label" parent="HelpMenu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -192.5
+margin_right = 192.5
+margin_bottom = 28.0
+text = "CRUMBLEKART web edition"
+
+[node name="Label2" type="Label" parent="HelpMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -118.5
+margin_top = -60.5
+margin_right = 118.5
+margin_bottom = 60.5
+text = "Controls:
+WASD: Movement
+SHIFT: Drift
+C: Look Behind"
+
+[node name="HelpCloseBttn" type="Button" parent="HelpMenu"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -78.0
+margin_top = -30.0
+text = "close"
+
+[connection signal="pressed" from="NewButtons/SingleplayerBttn" to="." method="_on_SingleplayerBttn_pressed"]
+[connection signal="pressed" from="NewButtons/HelpBttn" to="." method="_on_HelpBttn_pressed"]
 [connection signal="pressed" from="NewButtons/MultiplayerBttn" to="." method="_on_MultiplayerBttn_pressed"]
 [connection signal="pressed" from="NewButtons/SettingsBttn" to="." method="_on_SettingsBttn_pressed"]
 [connection signal="pressed" from="NewButtons/QuitBttn" to="." method="_on_QuitBttn_pressed"]
 [connection signal="pressed" from="Multiplayer/JoinOptions/join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Multiplayer/HostOptions/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="HelpMenu/HelpCloseBttn" to="." method="_on_HelpCloseBttn_pressed"]

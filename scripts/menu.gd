@@ -14,6 +14,7 @@ func _ready():
 	
 	var foo = get_viewport().size.x
 	$NewButtons.rect_position = Vector2(0,get_viewport().size.x / 6)
+	$HelpMenu.hide()
 
 
 func _on_host_pressed():
@@ -73,3 +74,25 @@ func hide_all():
 func _on_SettingsBttn_pressed():
 	hide_all()
 	$Settings.show()
+
+
+func _on_SingleplayerBttn_pressed():
+	if nametext.text != "":
+		var port
+		fill_in_local_player_info()
+		if hostporttext.text == "":
+			port = Network.DEF_PORT
+		else:
+			port = hostporttext.text
+		
+		Network.create_server(port)
+		Global.local_player_name = nametext.name
+		go_to_lobby()
+
+
+func _on_HelpBttn_pressed():
+	$HelpMenu.show()
+
+
+func _on_HelpCloseBttn_pressed():
+	$HelpMenu.hide()

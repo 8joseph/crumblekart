@@ -47,7 +47,6 @@ var character_list = {
 }
 
 var map_list = {
-	1 : testMap,
-	2 : downtown,
-	3 : crumbleStadium
+	1 : downtown,
+	2 : testMap
 }
